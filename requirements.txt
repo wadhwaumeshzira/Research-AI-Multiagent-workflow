@@ -7,4 +7,4 @@ bcrypt
 fastapi
 uvicorn
 certifi
- 
+streamlit
