@@ -1,0 +1,10 @@
+groq
+python-dotenv
+ddgs
+reportlab
+pymongo
+bcrypt
+fastapi
+uvicorn
+certifi
+ 

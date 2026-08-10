@@ -1,0 +1,21 @@
+# Secrets — never commit these
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+
+# Local generated files
+logs/
+reports/
+research_history.db
+evaluation_results.json
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
