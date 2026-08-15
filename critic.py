@@ -19,7 +19,7 @@ from observability import log_event
 
 load_dotenv()
 
-CRITIC_MODEL = "llama-3.3-70b-versatile"
+CRITIC_MODEL = "openai/gpt-oss-120b"
 
 CRITIC_SYSTEM_PROMPT = """You are a quality-control critic reviewing a research report.
 
