@@ -1,5 +1,5 @@
 """
-fact_checker.py — STAGE 5: Fact-Checker Agent (our addition beyond the reference project)
+fact_checker.py — STAGE 5: Fact-Checker Agent 
 
 The Synthesizer combines findings into a report, but LLMs tend to blend in
 things they "remember" from training alongside what was actually found via
@@ -76,7 +76,7 @@ def fact_check(report: str, findings: list[dict], verbose: bool = True) -> dict:
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0,
-            reasoning_effort="low"
+            reasoning_effort="low",  # bump to "medium" if it misses errors
         )
         usage = getattr(response, "usage", None)
         log_event("llm_call", model=FACT_CHECK_MODEL, function="fact_check", success=True,
