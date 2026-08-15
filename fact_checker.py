@@ -76,6 +76,7 @@ def fact_check(report: str, findings: list[dict], verbose: bool = True) -> dict:
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0,
+            reasoning_effort="low"
         )
         usage = getattr(response, "usage", None)
         log_event("llm_call", model=FACT_CHECK_MODEL, function="fact_check", success=True,
