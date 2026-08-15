@@ -14,7 +14,7 @@ from observability import log_event
 load_dotenv()
 
 SYNTHESIZER_MODEL = "openai/gpt-oss-120b"
-FALLBACK_MODEL = "llama-3.1-8b-instant"  # used if primary model fails
+FALLBACK_MODEL = "openai/gpt-oss-120b"  # used if primary model fails
 
 SYNTHESIZER_SYSTEM_PROMPT = """You are a research synthesis agent. You will be given \
 research findings for several sub-questions about one broader topic. Combine them \
