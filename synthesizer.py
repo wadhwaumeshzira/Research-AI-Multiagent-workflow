@@ -96,16 +96,32 @@ def synthesize(topic: str, findings: list[dict], theme: str = "standard", verbos
 
     except Exception as e:
         if verbose:
-            print(f"[Synthesizer] Primary model failed ({e}), retrying with fallback model")
-        response = client.chat.completions.create(
-            model=FALLBACK_MODEL,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            temperature=0.2,
-        )
-        return response.choices[0].message.content
+            print(f"[Synthesizer] Primary model failed: {type(e).__name__}: {e}")
+            print(f"[Synthesizer] Retrying with fallback model ({FALLBACK_MODEL})...")
+        try:
+            response = client.chat.completions.create(
+                model=FALLBACK_MODEL,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=0.2,
+            )
+            usage = getattr(response, "usage", None)
+            log_event("llm_call", model=FALLBACK_MODEL, function="synthesize", success=True,
+                       prompt_tokens=getattr(usage, "prompt_tokens", 0) if usage else 0,
+                       completion_tokens=getattr(usage, "completion_tokens", 0) if usage else 0,
+                       total_tokens=getattr(usage, "total_tokens", 0) if usage else 0)
+            return response.choices[0].message.content
+        except Exception as e2:
+            if verbose:
+                print(f"[Synthesizer] Fallback model also failed: {type(e2).__name__}: {e2}")
+            log_event("llm_call", model=FALLBACK_MODEL, function="synthesize", success=False,
+                       error=str(e2))
+            raise RuntimeError(
+                f"Both primary ({SYNTHESIZER_MODEL}) and fallback ({FALLBACK_MODEL}) "
+                f"models failed. Primary error: {e}. Fallback error: {e2}"
+            ) from e2
 
 
 if __name__ == "__main__":
