@@ -60,6 +60,7 @@ def run_agent(question: str, verbose: bool = True) -> dict:
                 tools=TOOL_DEFINITIONS,
                 tool_choice="auto",
                 temperature=0.2,
+                reasoning_effort="low"
                 parallel_tool_calls=False,  # Groq's tool-calling is flaky with parallel calls
             )
             tokens = extract_tokens(response)
