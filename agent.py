@@ -80,6 +80,7 @@ def run_agent(question: str, verbose: bool = True) -> dict:
                     "content": "(A tool call failed. Please answer directly using what you already know, without calling any tools.)"
                 }],
                 temperature=0.2,
+                reasoning_effort="low"
             )
             msg = response.choices[0].message
             steps.append("[Final answer generated after fallback]")
