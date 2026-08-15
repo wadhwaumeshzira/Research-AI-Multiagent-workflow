@@ -63,6 +63,7 @@ def review(sub_questions: list[str], report: str, verbose: bool = True) -> dict:
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0,
+            reasoning_effort="low"
         )
         usage = getattr(response, "usage", None)
         log_event("llm_call", model=CRITIC_MODEL, function="review", success=True,
