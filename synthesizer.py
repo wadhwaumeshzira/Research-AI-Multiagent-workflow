@@ -86,6 +86,7 @@ def synthesize(topic: str, findings: list[dict], theme: str = "standard", verbos
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0.2,
+            reasoning_effort="medium"
         )
         usage = getattr(response, "usage", None)
         log_event("llm_call", model=SYNTHESIZER_MODEL, function="synthesize", success=True,
