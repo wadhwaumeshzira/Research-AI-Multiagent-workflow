@@ -14,7 +14,7 @@ from orchestrator import run_pipeline
 
 load_dotenv()
 
-COMPARE_MODEL = "llama-3.3-70b-versatile"
+COMPARE_MODEL = "openai/gpt-oss-120b"
 
 COMPARE_SYSTEM_PROMPT = """You are a comparison agent. You are given two independent \
 research reports on two different topics. Produce a structured comparison between them.
