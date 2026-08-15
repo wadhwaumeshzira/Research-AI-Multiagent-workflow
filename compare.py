@@ -80,7 +80,7 @@ def run_comparison(topic_a: str, topic_b: str, verbose: bool = True) -> dict:
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.2,
-        reasoning_effort="low"
+        reasoning_effort="low",
     )
 
     return {
