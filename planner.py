@@ -58,7 +58,7 @@ def plan_sub_questions(topic: str, verbose: bool = True) -> list[str]:
                 {"role": "user", "content": f"Topic: {topic}"},
             ],
             temperature=0.3,
-            reasoning_effort="medium"
+            reasoning_effort="low",
         )
         raw = response.choices[0].message.content.strip()
         usage = getattr(response, "usage", None)
