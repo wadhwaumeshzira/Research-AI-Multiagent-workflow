@@ -60,7 +60,7 @@ def run_agent(question: str, verbose: bool = True) -> dict:
                 tools=TOOL_DEFINITIONS,
                 tool_choice="auto",
                 temperature=0.2,
-                reasoning_effort="low"
+                reasoning_effort="low",  # tool selection doesn't need deep reasoning; bump to "medium" if tool-calls get flaky
                 parallel_tool_calls=False,  # Groq's tool-calling is flaky with parallel calls
             )
             tokens = extract_tokens(response)
@@ -81,7 +81,7 @@ def run_agent(question: str, verbose: bool = True) -> dict:
                     "content": "(A tool call failed. Please answer directly using what you already know, without calling any tools.)"
                 }],
                 temperature=0.2,
-                reasoning_effort="low"
+                reasoning_effort="low",
             )
             msg = response.choices[0].message
             steps.append("[Final answer generated after fallback]")
