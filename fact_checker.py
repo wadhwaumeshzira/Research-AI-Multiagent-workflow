@@ -20,7 +20,7 @@ from observability import log_event
 
 load_dotenv()
 
-FACT_CHECK_MODEL = "llama-3.3-70b-versatile"
+FACT_CHECK_MODEL = "openai/gpt-oss-120b"
 
 FACT_CHECK_SYSTEM_PROMPT = """You are a fact-checking agent. You will be given a research \
 report and the raw research notes (tool outputs) that were actually gathered during research.
