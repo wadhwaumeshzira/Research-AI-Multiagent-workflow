@@ -86,7 +86,7 @@ def synthesize(topic: str, findings: list[dict], theme: str = "standard", verbos
                 {"role": "user", "content": user_prompt},
             ],
             temperature=0.2,
-            reasoning_effort="medium"
+            reasoning_effort="low",  # bump to "medium" if report quality drops
         )
         usage = getattr(response, "usage", None)
         log_event("llm_call", model=SYNTHESIZER_MODEL, function="synthesize", success=True,
@@ -107,6 +107,8 @@ def synthesize(topic: str, findings: list[dict], theme: str = "standard", verbos
                     {"role": "user", "content": user_prompt},
                 ],
                 temperature=0.2,
+                # note: no reasoning_effort here — that param is gpt-oss-specific;
+                # FALLBACK_MODEL (qwen) may reject it
             )
             usage = getattr(response, "usage", None)
             log_event("llm_call", model=FALLBACK_MODEL, function="synthesize", success=True,
