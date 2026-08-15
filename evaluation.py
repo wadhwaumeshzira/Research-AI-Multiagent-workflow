@@ -66,7 +66,7 @@ def judge_report(topic: str, report: str) -> dict:
                 {"role": "user", "content": prompt},
             ],
             temperature=0,
-            reasoning_effort="low"
+            reasoning_effort="low",  # bump to "medium" if scoring feels inconsistent
         )
         raw = response.choices[0].message.content.strip()
         raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw.strip())
