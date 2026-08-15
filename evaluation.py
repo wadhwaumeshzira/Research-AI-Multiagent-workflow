@@ -20,7 +20,7 @@ from orchestrator import run_pipeline
 
 load_dotenv()
 
-JUDGE_MODEL = "llama-3.3-70b-versatile"
+JUDGE_MODEL = "openai/gpt-oss-120b"
 
 TEST_TOPICS = [
     "Latest developments in renewable energy 2026",
