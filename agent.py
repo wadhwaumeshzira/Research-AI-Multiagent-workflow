@@ -21,7 +21,7 @@ import time
 
 load_dotenv()
 
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "openai/gpt-oss-120b"
 MAX_ITERATIONS = 6  # safety cap so a confused agent can't loop forever
 
 
