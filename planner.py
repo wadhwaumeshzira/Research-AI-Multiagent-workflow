@@ -19,7 +19,7 @@ from observability import log_event
 
 load_dotenv()
 
-PLANNER_MODEL = "openai/gpt-oss-120b"
+PLANNER_MODEL = "openai/gpt-oss-20b"
 
 PLANNER_SYSTEM_PROMPT = """You are a research planning agent. Break down a broad \
 research topic into 2-4 specific, focused sub-questions that together give \
