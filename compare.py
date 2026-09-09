@@ -14,7 +14,7 @@ from orchestrator import run_pipeline
 
 load_dotenv()
 
-COMPARE_MODEL = "openai/gpt-oss-120b"
+COMPARE_MODEL = "openai/gpt-oss-20b"
 
 COMPARE_SYSTEM_PROMPT = """You are a comparison agent. You are given two independent \
 research reports on two different topics. Produce a structured comparison between them.
