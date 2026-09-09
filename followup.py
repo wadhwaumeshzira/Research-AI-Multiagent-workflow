@@ -12,7 +12,7 @@ from groq import Groq
 
 load_dotenv()
 
-FOLLOWUP_MODEL = "llama-3.1-8b-instant"  # fast + cheap is fine for this, no tool use needed
+FOLLOWUP_MODEL = "openai/gpt-oss-20b"  # fast + cheap is fine for this, no tool use needed
 
 FOLLOWUP_SYSTEM_PROMPT = """You are answering a follow-up question about a research report \
 that has already been generated. Answer using ONLY the information in the report below — \
