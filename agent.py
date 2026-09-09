@@ -21,7 +21,7 @@ import time
 
 load_dotenv()
 
-MODEL = "openai/gpt-oss-120b"
+MODEL = "openai/gpt-oss-20b"
 MAX_ITERATIONS = 6  # safety cap so a confused agent can't loop forever
 
 
